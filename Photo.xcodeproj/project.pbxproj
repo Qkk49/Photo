@@ -94,8 +94,8 @@
 			children = (
 				8A11BD962923D0AD0001C028 /* PhotoListProtocols.swift */,
 				8A11BD7E2923CFEA0001C028 /* PhotoListViewController.swift */,
-				8A11BD902923D08A0001C028 /* PhotoListInteractor.swift */,
 				8A11BD8E2923D0740001C028 /* PhotoListPresenter.swift */,
+				8A11BD902923D08A0001C028 /* PhotoListInteractor.swift */,
 				8A11BD922923D0970001C028 /* PhotoListEntity.swift */,
 				8A11BD942923D0A10001C028 /* PhotoListRouter.swift */,
 			);
@@ -107,8 +107,8 @@
 			children = (
 				8A11BD992923D1150001C028 /* PhotoDetailProtocols.swift */,
 				8A11BDA32923D17E0001C028 /* PhotoDetailViewController.swift */,
-				8A11BD9D2923D13A0001C028 /* PhotoDetailInteractor.swift */,
 				8A11BDA12923D1550001C028 /* PhotoDetailPresenter.swift */,
+				8A11BD9D2923D13A0001C028 /* PhotoDetailInteractor.swift */,
 				8A11BD9F2923D1470001C028 /* PhotoDetailEntity.swift */,
 				8A11BD9B2923D1230001C028 /* PhotoDetailRouter.swift */,
 			);

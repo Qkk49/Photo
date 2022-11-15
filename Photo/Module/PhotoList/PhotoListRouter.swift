@@ -1,8 +1,8 @@
-//
-//  PhotoListRouter.swift
-//  Photo
-//
-//  Created by Павел Клымко on 15.11.22.
-//
+import UIKit
 
-import Foundation
+class PhotoListRouter: PresenterToRouterPhotoListProtocol {
+    
+    static func createModule() -> UINavigationController? {
+        //create
+    }
+}
