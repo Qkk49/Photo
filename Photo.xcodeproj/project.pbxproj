@@ -24,6 +24,8 @@
 		8A11BDA02923D1470001C028 /* PhotoDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A11BD9F2923D1470001C028 /* PhotoDetailEntity.swift */; };
 		8A11BDA22923D1560001C028 /* PhotoDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A11BDA12923D1550001C028 /* PhotoDetailPresenter.swift */; };
 		8A11BDA42923D17E0001C028 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A11BDA32923D17E0001C028 /* PhotoDetailViewController.swift */; };
+		8A156A102924A6EC0081DE97 /* CompilingURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A0F2924A6EB0081DE97 /* CompilingURL.swift */; };
+		8A156A122924A6FC0081DE97 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A112924A6FC0081DE97 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		8A11BD9F2923D1470001C028 /* PhotoDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailEntity.swift; sourceTree = "<group>"; };
 		8A11BDA12923D1550001C028 /* PhotoDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPresenter.swift; sourceTree = "<group>"; };
 		8A11BDA32923D17E0001C028 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		8A156A0F2924A6EB0081DE97 /* CompilingURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilingURL.swift; sourceTree = "<group>"; };
+		8A156A112924A6FC0081DE97 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +82,10 @@
 		8A11BD792923CFEA0001C028 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				8A11BD7A2923CFEA0001C028 /* AppDelegate.swift */,
-				8A11BD7C2923CFEA0001C028 /* SceneDelegate.swift */,
+				8A156A152924A72C0081DE97 /* Source */,
+				8A156A142924A71D0081DE97 /* ServiceLayer */,
 				8A11BDA62923D1960001C028 /* Module */,
-				8A11BD802923CFEA0001C028 /* Main.storyboard */,
-				8A11BD832923CFEB0001C028 /* Assets.xcassets */,
-				8A11BD852923CFEB0001C028 /* LaunchScreen.storyboard */,
+				8A156A162924A73B0081DE97 /* Base */,
 				8A11BD882923CFEB0001C028 /* Info.plist */,
 			);
 			path = Photo;
@@ -122,6 +124,42 @@
 				8A11BDA52923D1870001C028 /* PhototDetail */,
 			);
 			path = Module;
+			sourceTree = "<group>";
+		};
+		8A156A132924A70C0081DE97 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8A156A0F2924A6EB0081DE97 /* CompilingURL.swift */,
+				8A156A112924A6FC0081DE97 /* NetworkService.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		8A156A142924A71D0081DE97 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				8A156A132924A70C0081DE97 /* NetworkLayer */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		8A156A152924A72C0081DE97 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8A11BD7A2923CFEA0001C028 /* AppDelegate.swift */,
+				8A11BD7C2923CFEA0001C028 /* SceneDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8A156A162924A73B0081DE97 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8A11BD802923CFEA0001C028 /* Main.storyboard */,
+				8A11BD832923CFEB0001C028 /* Assets.xcassets */,
+				8A11BD852923CFEB0001C028 /* LaunchScreen.storyboard */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A156A102924A6EC0081DE97 /* CompilingURL.swift in Sources */,
 				8A11BDA22923D1560001C028 /* PhotoDetailPresenter.swift in Sources */,
 				8A11BD9A2923D1150001C028 /* PhotoDetailProtocols.swift in Sources */,
 				8A11BD912923D08A0001C028 /* PhotoListInteractor.swift in Sources */,
@@ -204,6 +243,7 @@
 				8A11BD952923D0A10001C028 /* PhotoListRouter.swift in Sources */,
 				8A11BD7F2923CFEA0001C028 /* PhotoListViewController.swift in Sources */,
 				8A11BD9E2923D13A0001C028 /* PhotoDetailInteractor.swift in Sources */,
+				8A156A122924A6FC0081DE97 /* NetworkService.swift in Sources */,
 				8A11BDA02923D1470001C028 /* PhotoDetailEntity.swift in Sources */,
 				8A11BDA42923D17E0001C028 /* PhotoDetailViewController.swift in Sources */,
 				8A11BD8F2923D0740001C028 /* PhotoListPresenter.swift in Sources */,
