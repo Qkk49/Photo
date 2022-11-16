@@ -14,9 +14,11 @@ class NetworkService: NetworkServiceProtocol {
             
             do {
                 let obj = try JSONDecoder().decode([RandomPhoto].self, from: data!)
+                print("jdjdj")
                 complition(.success(obj))
             } catch {
                 complition(.failure(error))
+                print("fail")
             }
         } .resume()
     }

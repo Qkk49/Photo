@@ -1,48 +1,27 @@
 import UIKit
 
-//MARK: - View Input (View -> Presenter)
-protocol ViewToPresenterPhotoListProtocol {
-    var view: PresenterToViewPhotoListProtocol? { get set }
-    var interactor: PresenterToInteractorPhotoListProtocol? { get set }
-    var router: PresenterToRouterPhotoListProtocol? { get set }
-    func viewDidLoad()
-    func refresh()
-    
-    func numberOfRowsInSection() -> Int //
-    func setCell(tableView: UITableView, forRowAt indexPath: IndexPath) -> UITableViewCell //
-    func didSelectRowAt(index: Int) //
-    func tableViewCellHeight() -> CGFloat //
-}
-
-//MARK: - View Output (Presenter -> View)
-protocol PresenterToViewPhotoListProtocol: AnyObject {
+protocol ViewPhotoListProtocol: AnyObject {
+    func setupView()
+    func setTitle(with title: String)
     func onFetchPhotoListSucces()
     func onFetchPhotoListFailure(error: String)
-    func showActivity()
-    func hideActivity()
+    //    reload
 }
 
-//MARK: - Interactor Input (Presenter -> Interactor)
-protocol PresenterToInteractorPhotoListProtocol {
-    var presenter: InteractorToPresenterPhotoListProtocol? { get set }
+protocol PresenterPhotoListProtocol: AnyObject {
+    func viewDidLoad()
+    func fetchPhotoListSucces()
+    func fetchPhotoListFailure()
+    func getPhotoUrl(for indexpath : Int) -> String?
+}
+
+protocol InteractorPhotoListProtocol: AnyObject {
     var photos: [RandomPhoto]? { get set }
     func fetchPhotoList()
-    func getPhotoDetailAt(index: Int)
+//    func getPhotoDetailAt(index: Int)
 }
 
-//MARK: - Interactor Output (Interactor -> Presenter)
-protocol InteractorToPresenterPhotoListProtocol: AnyObject {
-    func fetchPhotoListSucces(photos: [RandomPhoto])
-    func fetchPhotoListFailure(error: String)
-    
-    // Details:
-    
-    func getPhotoDetailSucces(_ detail: PhotoDetail)
-    func getPhotoDetailFailure()
-}
-
-//MARK: - Router Input (Presenter -> Router)
-protocol PresenterToRouterPhotoListProtocol {
-    static func createModule() -> UINavigationController?
-    func pushToPhotoDetail(on view: PresenterToViewPhotoListProtocol?, with photo: PhotoDetail)
+protocol RouterPhotoListProtocol: AnyObject {
+    static func createModule(using navigationController: UINavigationController) -> PhotoListViewController
+//    func pushToPhotoDetail(on view: PresenterToViewPhotoListProtocol?, with photo: PhotoDetail)
 }

@@ -26,9 +26,15 @@
 		8A11BDA42923D17E0001C028 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A11BDA32923D17E0001C028 /* PhotoDetailViewController.swift */; };
 		8A156A102924A6EC0081DE97 /* CompilingURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A0F2924A6EB0081DE97 /* CompilingURL.swift */; };
 		8A156A122924A6FC0081DE97 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A112924A6FC0081DE97 /* NetworkService.swift */; };
+		8A156A182924E6F50081DE97 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A172924E6F50081DE97 /* PhotoCollectionViewCell.swift */; };
+		8A156A1B29251A340081DE97 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A1A29251A340081DE97 /* TabBarController.swift */; };
+		8A156A1D29251A4F0081DE97 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A1C29251A4F0081DE97 /* TabBarPresenter.swift */; };
+		8A156A1F29251A5A0081DE97 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A1E29251A5A0081DE97 /* TabBarRouter.swift */; };
+		8D835D17C1EF037FFC0C7A19 /* Pods_Photo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B8466755CCF7C070FA09DE /* Pods_Photo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73B8466755CCF7C070FA09DE /* Pods_Photo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A11BD772923CFEA0001C028 /* Photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A11BD7A2923CFEA0001C028 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A11BD7C2923CFEA0001C028 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +56,12 @@
 		8A11BDA32923D17E0001C028 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		8A156A0F2924A6EB0081DE97 /* CompilingURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilingURL.swift; sourceTree = "<group>"; };
 		8A156A112924A6FC0081DE97 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8A156A172924E6F50081DE97 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A156A1A29251A340081DE97 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		8A156A1C29251A4F0081DE97 /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		8A156A1E29251A5A0081DE97 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		9403EE0856B97491250A6630 /* Pods-Photo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photo.debug.xcconfig"; path = "Target Support Files/Pods-Photo/Pods-Photo.debug.xcconfig"; sourceTree = "<group>"; };
+		F335AAFAF91DACE95C8FEFBF /* Pods-Photo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photo.release.xcconfig"; path = "Target Support Files/Pods-Photo/Pods-Photo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +69,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D835D17C1EF037FFC0C7A19 /* Pods_Photo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78077F02D96B132EF1571133 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73B8466755CCF7C070FA09DE /* Pods_Photo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8A11BD6E2923CFEA0001C028 = {
 			isa = PBXGroup;
 			children = (
 				8A11BD792923CFEA0001C028 /* Photo */,
 				8A11BD782923CFEA0001C028 /* Products */,
+				9E5683EF933344EA6D00F23B /* Pods */,
+				78077F02D96B132EF1571133 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,8 +121,9 @@
 				8A11BD7E2923CFEA0001C028 /* PhotoListViewController.swift */,
 				8A11BD8E2923D0740001C028 /* PhotoListPresenter.swift */,
 				8A11BD902923D08A0001C028 /* PhotoListInteractor.swift */,
-				8A11BD922923D0970001C028 /* PhotoListEntity.swift */,
 				8A11BD942923D0A10001C028 /* PhotoListRouter.swift */,
+				8A11BD922923D0970001C028 /* PhotoListEntity.swift */,
+				8A156A192924E6FB0081DE97 /* View */,
 			);
 			path = PhotoList;
 			sourceTree = "<group>";
@@ -111,8 +135,8 @@
 				8A11BDA32923D17E0001C028 /* PhotoDetailViewController.swift */,
 				8A11BDA12923D1550001C028 /* PhotoDetailPresenter.swift */,
 				8A11BD9D2923D13A0001C028 /* PhotoDetailInteractor.swift */,
-				8A11BD9F2923D1470001C028 /* PhotoDetailEntity.swift */,
 				8A11BD9B2923D1230001C028 /* PhotoDetailRouter.swift */,
+				8A11BD9F2923D1470001C028 /* PhotoDetailEntity.swift */,
 			);
 			path = PhototDetail;
 			sourceTree = "<group>";
@@ -120,6 +144,7 @@
 		8A11BDA62923D1960001C028 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				8A156A2029251A750081DE97 /* TabBar */,
 				8A11BD982923D0C80001C028 /* PhotoList */,
 				8A11BDA52923D1870001C028 /* PhototDetail */,
 			);
@@ -162,6 +187,33 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		8A156A192924E6FB0081DE97 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A156A172924E6F50081DE97 /* PhotoCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A156A2029251A750081DE97 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8A156A1A29251A340081DE97 /* TabBarController.swift */,
+				8A156A1C29251A4F0081DE97 /* TabBarPresenter.swift */,
+				8A156A1E29251A5A0081DE97 /* TabBarRouter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		9E5683EF933344EA6D00F23B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9403EE0856B97491250A6630 /* Pods-Photo.debug.xcconfig */,
+				F335AAFAF91DACE95C8FEFBF /* Pods-Photo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A11BD8B2923CFEB0001C028 /* Build configuration list for PBXNativeTarget "Photo" */;
 			buildPhases = (
+				38ED3397EE4BEFF0EA64CC73 /* [CP] Check Pods Manifest.lock */,
 				8A11BD732923CFEA0001C028 /* Sources */,
 				8A11BD742923CFEA0001C028 /* Frameworks */,
 				8A11BD752923CFEA0001C028 /* Resources */,
+				DED186B6F33A15B2DC7EB753 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,6 +282,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38ED3397EE4BEFF0EA64CC73 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Photo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DED186B6F33A15B2DC7EB753 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Photo/Pods-Photo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Photo/Pods-Photo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Photo/Pods-Photo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A11BD732923CFEA0001C028 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -236,7 +332,9 @@
 				8A156A102924A6EC0081DE97 /* CompilingURL.swift in Sources */,
 				8A11BDA22923D1560001C028 /* PhotoDetailPresenter.swift in Sources */,
 				8A11BD9A2923D1150001C028 /* PhotoDetailProtocols.swift in Sources */,
+				8A156A1B29251A340081DE97 /* TabBarController.swift in Sources */,
 				8A11BD912923D08A0001C028 /* PhotoListInteractor.swift in Sources */,
+				8A156A182924E6F50081DE97 /* PhotoCollectionViewCell.swift in Sources */,
 				8A11BD932923D0970001C028 /* PhotoListEntity.swift in Sources */,
 				8A11BD972923D0AD0001C028 /* PhotoListProtocols.swift in Sources */,
 				8A11BD9C2923D1230001C028 /* PhotoDetailRouter.swift in Sources */,
@@ -245,8 +343,10 @@
 				8A11BD9E2923D13A0001C028 /* PhotoDetailInteractor.swift in Sources */,
 				8A156A122924A6FC0081DE97 /* NetworkService.swift in Sources */,
 				8A11BDA02923D1470001C028 /* PhotoDetailEntity.swift in Sources */,
+				8A156A1F29251A5A0081DE97 /* TabBarRouter.swift in Sources */,
 				8A11BDA42923D17E0001C028 /* PhotoDetailViewController.swift in Sources */,
 				8A11BD8F2923D0740001C028 /* PhotoListPresenter.swift in Sources */,
+				8A156A1D29251A4F0081DE97 /* TabBarPresenter.swift in Sources */,
 				8A11BD7B2923CFEA0001C028 /* AppDelegate.swift in Sources */,
 				8A11BD7D2923CFEA0001C028 /* SceneDelegate.swift in Sources */,
 			);
@@ -390,6 +490,7 @@
 		};
 		8A11BD8C2923CFEB0001C028 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9403EE0856B97491250A6630 /* Pods-Photo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -418,6 +519,7 @@
 		};
 		8A11BD8D2923CFEB0001C028 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F335AAFAF91DACE95C8FEFBF /* Pods-Photo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

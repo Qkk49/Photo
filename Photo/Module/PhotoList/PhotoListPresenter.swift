@@ -1,63 +1,36 @@
 import UIKit
 
-class PhotoListPresenter: ViewToPresenterPhotoListProtocol {
+final class PhotoListPresenter {
     
-    var photos = [RandomPhoto]()
+    private weak var view: ViewPhotoListProtocol?
+    private var router: RouterPhotoListProtocol?
+    private var interactor: InteractorPhotoListProtocol?
+    private var photos: [RandomPhoto]?
     
-    weak var view: PresenterToViewPhotoListProtocol?
-    var interactor: PresenterToInteractorPhotoListProtocol?
-    var router: PresenterToRouterPhotoListProtocol?
-    
-    func viewDidLoad() {
-        view?.showActivity()
-        interactor?.fetchPhotoList()
-    }
-    
-    func refresh() {
-//        implement as per usage
-    }
-    
-    func numberOfRowsInSection() -> Int {
-        return photos.count
-    }
-    
-    func setCell(tableView: UITableView, forRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return cell
-    }
-    
-    func didSelectRowAt(index: Int) {
-        interactor?.getPhotoDetailAt(index: index)
-    }
-    
-    func tableViewCellHeight() -> CGFloat {
-//        hight
+    init(view: ViewPhotoListProtocol?, router: RouterPhotoListProtocol?, interactor: InteractorPhotoListProtocol?) {
+        self.view = view
+        self.router = router
+        self.interactor = interactor
     }
 }
 
-extension PhotoListPresenter: InteractorToPresenterPhotoListProtocol {
+extension PhotoListPresenter: PresenterPhotoListProtocol {
     
-    func fetchPhotoListSucces(photos: [RandomPhoto]) {
-        self.photos = photos
-        view?.hideActivity()
-        view?.onFetchPhotoListSucces()
+    func viewDidLoad() {
+        view?.setupView()
+        view?.setTitle(with: "Home")
+        fetchPhotoListSucces()
     }
     
-    func fetchPhotoListFailure(error: String) {
-        view?.hideActivity()
-        view?.onFetchPhotoListFailure(error: "Fetch photos error with error code-\(error)")
+    func getPhotoUrl(for indexpath : Int) -> String? {
+        return photos?[indexpath].urls.small
     }
     
-    // Photo detail screen navigation after selecting photos:
-    
-    func getPhotoDetailSucces(_ detail: PhotoDetail) {
-        // Navigate only if you receive the detail object from interactor:
-        // use if-let syntax here:
-        router?.pushToPhotoDetail(on: view, with: detail)
+    func fetchPhotoListSucces() {
+        photos = interactor?.photos //TUT
     }
     
-    func getPhotoDetailFailure() {
-        view?.hideActivity()
-        // Show an alert here:
-        print("Photo detail failure")
+    func fetchPhotoListFailure() {
+        view?.onFetchPhotoListFailure(error: "Fetch photos error with error code")
     }
 }
