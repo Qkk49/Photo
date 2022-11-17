@@ -7,6 +7,7 @@ typealias PhotoViewModel = (data: String, url: String, name: String?)
 protocol PresenterPhotoListProtocol: AnyObject {
     func viewDidLoad()
     func getPhotoViewModels() -> [PhotoViewModel]?
+    func photoSelected()
     func fetchPhotoListSucces(photoList: [RandomPhoto])
     func fetchPhotoListFailure(with errorMessage: Error)
 }
@@ -18,6 +19,9 @@ final class PhotoListPresenter {
     var interactor: InteractorPhotoListProtocol?
     var photoViewModels: [PhotoViewModel]?
     
+    let detailIdentifier = "showPhotoDetail"
+    let moduleTitle = "Gallery"
+    
 }
 
 extension PhotoListPresenter: PresenterPhotoListProtocol {
@@ -28,8 +32,12 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
     
     func viewDidLoad() {
         view?.setupView()
-        view?.setTitle(with: "Photos")
+        view?.setTitle(with: moduleTitle)
         interactor?.fetchPhotoList()
+    }
+    
+    func photoSelected() {
+        
     }
     
     func fetchPhotoListSucces(photoList: [RandomPhoto]) {

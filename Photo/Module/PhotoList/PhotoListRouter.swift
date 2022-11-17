@@ -3,11 +3,13 @@ import UIKit
 //MARK: - Protocol
 protocol RouterPhotoListProtocol: AnyObject {
     static func createModule(using navigationController: UINavigationController) -> PhotoListViewController
+    func performDetail(with identifier: String)
 }
 
 class PhotoListRouter: RouterPhotoListProtocol {
     
     weak var presenter: PresenterPhotoListProtocol?
+    weak var navigationController: UINavigationController?
     
     static func createModule(using navigationController: UINavigationController) -> PhotoListViewController {
         
@@ -26,5 +28,9 @@ class PhotoListRouter: RouterPhotoListProtocol {
         view.presenter = presenter
         
         return view
+    }
+    
+    func performDetail(with identifier: String) {
+//        self.navigationController
     }
 }

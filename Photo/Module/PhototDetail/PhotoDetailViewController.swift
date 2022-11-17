@@ -1,29 +1,31 @@
-//
-//  PhotoDetailViewController.swift
-//  Photo
-//
-//  Created by Павел Клымко on 15.11.22.
-//
-
 import UIKit
+import Kingfisher
+
+//MARK: - Protocol
+protocol ViewPhotoDetailProtocol: AnyObject {
+    func setupView()
+    func setTitle(with title: String)
+    func reloadData()
+}
 
 class PhotoDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension PhotoDetailViewController: ViewPhotoDetailProtocol {
+    
+    func setupView() {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setTitle(with title: String) {
+        
     }
-    */
-
+    
+    func reloadData() {
+        
+    }
 }

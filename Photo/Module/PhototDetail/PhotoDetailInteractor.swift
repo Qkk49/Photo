@@ -1,8 +1,12 @@
-//
-//  PhotoDetailInteractor.swift
-//  Photo
-//
-//  Created by Павел Клымко on 15.11.22.
-//
-
 import Foundation
+
+//MARK: - Protocol
+protocol InteractorPhotoDetailProtocol: AnyObject {
+    
+}
+
+final class PhotoDetailInteractor: InteractorPhotoDetailProtocol {
+    
+    weak var presenter: PresenterPhotoListProtocol?
+    
+}
