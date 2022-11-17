@@ -1,5 +1,6 @@
 import Foundation
 
+//MARK: - Protocol
 protocol TabBarPresenterProtocol: AnyObject {
     func viewLoaded()
 }

@@ -12,13 +12,14 @@ final class PhotoDetailPresenter {
     var interactor: InteractorPhotoDetailProtocol?
 //    var photoViewModels: [PhotoViewModel]?
     
-    let moduleTitle = "Photo"
+    private let moduleTitle = "Photo"
     
 }
 
 extension PhotoDetailPresenter: PresenterPhotoDetailProtocol {
     
     func viewDidLoad() {
-        
+        view?.setupView()
+        view?.setTitle(with: moduleTitle)
     }
 }

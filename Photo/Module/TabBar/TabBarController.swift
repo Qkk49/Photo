@@ -1,16 +1,19 @@
 import UIKit
 
+//MARK: - Protocol
 protocol TabBarViewProtocol: AnyObject {
     func setupView()
 }
 
 class TabBarController: UITabBarController {
     
+    //MARK: - Create TabBar Item
     private lazy var photoVC: UIViewController = {
         let navigationController = UINavigationController()
-        let photoListViewController = PhotoListRouter.createModule(using: navigationController)
+        let photoListViewController = PhotoListRouter.createListModule(using: navigationController)
+//        let photoDetailViewController = PhotoDetailRouter.createDetailModule(using: navigationController)
         navigationController.viewControllers = [photoListViewController]
-        navigationController.tabBarItem.title = "Home"
+//        navigationController.popToRootViewController(animated: true)
         navigationController.tabBarItem.image = UIImage(systemName: "house.circle")!
         return navigationController
     }()
@@ -26,6 +29,7 @@ class TabBarController: UITabBarController {
     }
 }
 
+//MARK: - Setup View
 extension TabBarController: TabBarViewProtocol {
     
     func setupView() {

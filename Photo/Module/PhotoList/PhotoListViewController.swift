@@ -39,17 +39,17 @@ extension PhotoListViewController {
     
     private func createPhotoListLayout() -> UICollectionViewLayout {
         let spacing: CGFloat = 10
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / 2.1), heightDimension: .fractionalHeight(0.8))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / 2.0), heightDimension: .fractionalHeight(1.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0 / 2.0))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
-        group.interItemSpacing = .fixed(20)
+        group.interItemSpacing = .fixed(25)
 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
-        section.interGroupSpacing = spacing
+        section.contentInsets = .init(top: 0, leading: spacing, bottom: 0, trailing: spacing)
+        section.interGroupSpacing = 0
 
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout

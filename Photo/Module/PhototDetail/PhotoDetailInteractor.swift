@@ -7,6 +7,6 @@ protocol InteractorPhotoDetailProtocol: AnyObject {
 
 final class PhotoDetailInteractor: InteractorPhotoDetailProtocol {
     
-    weak var presenter: PresenterPhotoListProtocol?
+    weak var presenter: PresenterPhotoDetailProtocol?
     
 }

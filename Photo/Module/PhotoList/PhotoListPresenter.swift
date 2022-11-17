@@ -20,7 +20,7 @@ final class PhotoListPresenter {
     var photoViewModels: [PhotoViewModel]?
     
     let detailIdentifier = "showPhotoDetail"
-    let moduleTitle = "Gallery"
+    private let moduleTitle = "Gallery"
     
 }
 
