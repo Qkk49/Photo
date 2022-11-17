@@ -5,7 +5,6 @@ protocol ViewPhotoListProtocol: AnyObject {
     func setTitle(with title: String)
     func onFetchPhotoListSucces()
     func onFetchPhotoListFailure(error: String)
-    //    reload
 }
 
 protocol PresenterPhotoListProtocol: AnyObject {

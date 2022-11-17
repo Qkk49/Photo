@@ -23,10 +23,13 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
     }
     
     func getPhotoUrl(for indexpath : Int) -> String? {
+//        print(photos?[indexpath].urls.small)
         return photos?[indexpath].urls.small
     }
     
     func fetchPhotoListSucces() {
+        print("sucs")
+        print(interactor?.photos)
         photos = interactor?.photos //TUT
     }
     
