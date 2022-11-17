@@ -1,28 +1,23 @@
 import UIKit
 
-typealias PhotoViewModel = (data: String, url: String?, name: String?)
+//MARK: - CollectionModel
+typealias PhotoViewModel = (data: String, url: String, name: String?)
 
+//MARK: - Protocol
 protocol PresenterPhotoListProtocol: AnyObject {
     func viewDidLoad()
     func getPhotoViewModels() -> [PhotoViewModel]?
     func fetchPhotoListSucces(photoList: [RandomPhoto])
-//    func fetchPhotoListFailure()
-//    func getPhotoUrl(for indexpath : Int) -> String?
+    func fetchPhotoListFailure(with errorMessage: Error)
 }
 
 final class PhotoListPresenter {
     
-    private weak var view: ViewPhotoListProtocol?
-    private var router: RouterPhotoListProtocol?
-    private var interactor: InteractorPhotoListProtocol?
-//    private var photos: [RandomPhoto]?
-    private var photoViewModels: [PhotoViewModel]?
+    weak var view: ViewPhotoListProtocol?
+    var router: RouterPhotoListProtocol?
+    var interactor: InteractorPhotoListProtocol?
+    var photoViewModels: [PhotoViewModel]?
     
-    init(view: ViewPhotoListProtocol?, router: RouterPhotoListProtocol?, interactor: InteractorPhotoListProtocol?) {
-        self.view = view
-        self.router = router
-        self.interactor = interactor
-    }
 }
 
 extension PhotoListPresenter: PresenterPhotoListProtocol {
@@ -33,19 +28,11 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
     
     func viewDidLoad() {
         view?.setupView()
-        view?.setTitle(with: "Home")
+        view?.setTitle(with: "Photos")
         interactor?.fetchPhotoList()
     }
     
-//    func getPhotoUrl(for indexpath : Int) -> String? {
-//        print(photos?[indexpath].urls.small)
-//        return photos?[indexpath].urls.small
-//    }
-    
     func fetchPhotoListSucces(photoList: [RandomPhoto]) {
-        print("sucs")
-//        print(interactor?.photos)
-//        photos = interactor?.photos
         var photoViewModels = [PhotoViewModel]()
         for photo in photoList {
             let photoViewModel: PhotoViewModel = (photo.created_at, photo.urls.small, photo.user?.name)
@@ -55,7 +42,7 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
         view?.reloadData()
     }
     
-//    func fetchPhotoListFailure() {
-//        view?.onFetchPhotoListFailure(error: "Fetch photos error with error code")
-//    }
+    func fetchPhotoListFailure(with errorMessage: Error) {
+        print(errorMessage)
+    }
 }

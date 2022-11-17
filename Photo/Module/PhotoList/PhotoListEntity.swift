@@ -1,15 +1,15 @@
 import Foundation
 
 struct RandomPhoto: Decodable {
-    var created_at: String
-    var urls: PhotoURL
-    var user : UserName?
+    let created_at: String
+    let urls: PhotoURL
+    let user : UserName?
 }
 
 struct PhotoURL: Decodable {
-    var small: String?
+    let small: String
 }
 
 struct UserName: Decodable {
-    var name: String?
+    let name: String?
 }

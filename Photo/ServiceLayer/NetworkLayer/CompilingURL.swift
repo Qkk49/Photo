@@ -11,7 +11,8 @@ enum Section {
         switch self {
         case .photoList:
             components.path = "/photos/random"
-            components.queryItems = [URLQueryItem(name: "count", value: String(30))]
+            components.queryItems = [URLQueryItem(name: "count", value: String(30)),
+                                     URLQueryItem(name: "orientation", value: "portrait")]
         }
         return components.url!
     }

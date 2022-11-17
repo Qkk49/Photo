@@ -2,19 +2,20 @@ import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
+    //MARK: - Property
     static let identifire = "PhotoCell"
     
     var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(photoImageView) //??????????????
+        addSubview(photoImageView)
     }
     
     required init?(coder: NSCoder) {

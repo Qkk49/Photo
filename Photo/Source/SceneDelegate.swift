@@ -12,8 +12,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         let tabbarController = TabBarRouter.createModule(using: navigationController)
         self.window?.rootViewController = tabbarController
-        window?.makeKeyAndVisible()
         window?.windowScene = windowScene
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

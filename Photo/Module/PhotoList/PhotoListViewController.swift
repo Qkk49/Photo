@@ -1,22 +1,25 @@
 import UIKit
 import Kingfisher
 
+//MARK: - Protocol
 protocol ViewPhotoListProtocol: AnyObject {
     func setupView()
     func setTitle(with title: String)
     func reloadData()
-//    func onFetchPhotoListFailure(error: String)
 }
 
 class PhotoListViewController: UIViewController {
     
-    var presenter: PresenterPhotoListProtocol = PhotoListPresenter(view: nil, router: nil, interactor: nil)
+    var presenter: PresenterPhotoListProtocol?
+    
+    //MARK: - CollectionView
     lazy var photoListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createPhotoListLayout())
     
+    //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         view.addSubview(photoListCollectionView)
+        presenter?.viewDidLoad()
         addConstraints()
     }
     
@@ -31,32 +34,29 @@ class PhotoListViewController: UIViewController {
     }
 }
 
+//MARK: - Create Layouts
 extension PhotoListViewController {
-    //MARK: - Create Layouts
+    
     private func createPhotoListLayout() -> UICollectionViewLayout {
         let spacing: CGFloat = 10
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(0.8))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / 2.1), heightDimension: .fractionalHeight(0.8))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(2.0 / 5.0),
-            heightDimension: .fractionalHeight(1.0))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0 / 2.0))
         
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-        group.interItemSpacing = .fixed(spacing)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
+        group.interItemSpacing = .fixed(20)
 
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = .init(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
-        section.interGroupSpacing = 20
-        section.orthogonalScrollingBehavior = .continuous
+        section.interGroupSpacing = spacing
 
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
 }
 
+//MARK: - Setup View
 extension PhotoListViewController: ViewPhotoListProtocol {
     func setupView() {
         photoListCollectionView.delegate = self
@@ -72,24 +72,23 @@ extension PhotoListViewController: ViewPhotoListProtocol {
     func reloadData() {
         photoListCollectionView.reloadData()
     }
-    
-//    func onFetchPhotoListFailure(error: String) {
-//        print("AaaaaaA")
-//    }
 }
 
+//MARK: - CollectionView: DataSource, Delegate
 extension PhotoListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        guard let photoModels = presenter?.getPhotoViewModels() else { return 0 }
+        return photoModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = photoListCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifire, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
-//        if let imageURL = presenter.getPhotoUrl(for: indexPath.row) {
-//            cell.photoImageView.kf.setImage(with: URL(string: imageURL))
-//        }
-        let photoModel = presenter.getPhotoViewModels()![indexPath.row]
-        cell.photoImageView.kf.setImage(with: URL(string: photoModel.url!))
+        
+        guard let photoModel = presenter?.getPhotoViewModels()?[indexPath.row] else { return cell }
+        
+        cell.photoImageView.kf.setImage(with: URL(string: photoModel.url))
+        
         return cell
     }
 }
