@@ -1,6 +1,13 @@
 import UIKit
 import Kingfisher
 
+protocol ViewPhotoListProtocol: AnyObject {
+    func setupView()
+    func setTitle(with title: String)
+    func reloadData()
+//    func onFetchPhotoListFailure(error: String)
+}
+
 class PhotoListViewController: UIViewController {
     
     var presenter: PresenterPhotoListProtocol = PhotoListPresenter(view: nil, router: nil, interactor: nil)
@@ -62,13 +69,13 @@ extension PhotoListViewController: ViewPhotoListProtocol {
         self.title = title
     }
     
-    func onFetchPhotoListSucces() {
+    func reloadData() {
         photoListCollectionView.reloadData()
     }
     
-    func onFetchPhotoListFailure(error: String) {
-        print("AaaaaaA")
-    }
+//    func onFetchPhotoListFailure(error: String) {
+//        print("AaaaaaA")
+//    }
 }
 
 extension PhotoListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -78,9 +85,11 @@ extension PhotoListViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = photoListCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifire, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
-        if let imageURL = presenter.getPhotoUrl(for: indexPath.row) {
-            cell.photoImageView.kf.setImage(with: URL(string: imageURL))
-        }
+//        if let imageURL = presenter.getPhotoUrl(for: indexPath.row) {
+//            cell.photoImageView.kf.setImage(with: URL(string: imageURL))
+//        }
+        let photoModel = presenter.getPhotoViewModels()![indexPath.row]
+        cell.photoImageView.kf.setImage(with: URL(string: photoModel.url!))
         return cell
     }
 }
