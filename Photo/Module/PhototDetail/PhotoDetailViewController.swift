@@ -13,31 +13,24 @@ class PhotoDetailViewController: UIViewController {
     var presenter: PresenterPhotoDetailProtocol?
     
     //MARK: - Property
-    
+    var photoDetailImageView = UIImageView(frame: .zero)
+    var nameDetailLabel = UILabel()
+    var dataDetailLabel = UILabel()
+    var favoriteDetailButton = UIButton()
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview()
+//        view.addSubview(ph)
         presenter?.viewDidLoad()
-        addConstraints()
-    }
-    
-    //MARK: - Constraints
-    private func addConstraints() {
-        NSLayoutConstraint.activate([
-//            .topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            .leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            .trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            .bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        
     }
 }
 
 extension PhotoDetailViewController: ViewPhotoDetailProtocol {
     
     func setupView() {
-        
+        addConstraints()
     }
     
     func setTitle(with title: String) {
@@ -46,5 +39,17 @@ extension PhotoDetailViewController: ViewPhotoDetailProtocol {
     
     func reloadData() {
         
+    }
+}
+
+extension PhotoDetailViewController {
+    //MARK: - Constraints
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+//            .topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            .leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+//            .trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+//            .bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }

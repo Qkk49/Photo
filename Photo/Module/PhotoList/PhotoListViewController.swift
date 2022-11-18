@@ -18,41 +18,7 @@ class PhotoListViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(photoListCollectionView)
         presenter?.viewDidLoad()
-        addConstraints()
-    }
-    
-    //MARK: - Constraints
-    private func addConstraints() {
-        NSLayoutConstraint.activate([
-            photoListCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            photoListCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            photoListCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            photoListCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-    }
-}
-
-//MARK: - Create Layouts
-extension PhotoListViewController {
-    
-    private func createPhotoListLayout() -> UICollectionViewLayout {
-        let spacing: CGFloat = 10
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / 2.0), heightDimension: .fractionalHeight(1.0))
-        
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0 / 2.0))
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
-        group.interItemSpacing = .fixed(25)
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 0, leading: spacing, bottom: 0, trailing: spacing)
-        section.interGroupSpacing = 0
-
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
     }
 }
 
@@ -61,8 +27,9 @@ extension PhotoListViewController: ViewPhotoListProtocol {
     func setupView() {
         photoListCollectionView.delegate = self
         photoListCollectionView.dataSource = self
-        photoListCollectionView.translatesAutoresizingMaskIntoConstraints = false
         photoListCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifire)
+        view.addSubviews(photoListCollectionView)
+        addConstraints()
     }
     
     func setTitle(with title: String) {
@@ -93,6 +60,37 @@ extension PhotoListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.photoSelected()
+    }
+}
+
+extension PhotoListViewController {
+    //MARK: - Constraints
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            photoListCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            photoListCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            photoListCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            photoListCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+
+    //MARK: - Create Layouts
+    private func createPhotoListLayout() -> UICollectionViewLayout {
+        let spacing: CGFloat = 10
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / 2.0), heightDimension: .fractionalHeight(1.0))
         
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0 / 2.0))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
+        group.interItemSpacing = .fixed(25)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 0, leading: spacing, bottom: 0, trailing: spacing)
+        section.interGroupSpacing = 0
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
 }

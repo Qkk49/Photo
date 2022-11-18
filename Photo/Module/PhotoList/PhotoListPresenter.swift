@@ -37,7 +37,7 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
     }
     
     func photoSelected() {
-        
+        router?.performDetail(with: detailIdentifier)
     }
     
     func fetchPhotoListSucces(photoList: [RandomPhoto]) {

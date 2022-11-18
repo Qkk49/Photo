@@ -22,9 +22,10 @@ final class PhotoDetailRouter: RouterPhotoDetailProtocol {
         presenter.interactor = interactor
         presenter.router = router
         presenter.view = view
+        view.presenter = presenter
         interactor.presenter = presenter
         router.presenter = presenter
-        view.presenter = presenter
+        router.navigationController = navigationController
         
         return view
     }

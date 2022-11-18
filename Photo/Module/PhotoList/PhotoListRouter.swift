@@ -23,14 +23,16 @@ class PhotoListRouter: RouterPhotoListProtocol {
         presenter.interactor = interactor
         presenter.router = router
         presenter.view = view
+        view.presenter = presenter
         interactor.presenter = presenter
         router.presenter = presenter
-        view.presenter = presenter
+        router.navigationController = navigationController
         
         return view
     }
     
     func performDetail(with identifier: String) {
-//        self.navigationController
+        let photoDetailModule = PhotoDetailRouter.createDetailModule(using: navigationController!)
+        self.navigationController?.pushViewController(photoDetailModule, animated: false)
     }
 }

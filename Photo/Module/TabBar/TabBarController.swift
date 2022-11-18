@@ -11,9 +11,7 @@ class TabBarController: UITabBarController {
     private lazy var photoVC: UIViewController = {
         let navigationController = UINavigationController()
         let photoListViewController = PhotoListRouter.createListModule(using: navigationController)
-//        let photoDetailViewController = PhotoDetailRouter.createDetailModule(using: navigationController)
         navigationController.viewControllers = [photoListViewController]
-//        navigationController.popToRootViewController(animated: true)
         navigationController.tabBarItem.image = UIImage(systemName: "house.circle")!
         return navigationController
     }()
