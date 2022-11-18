@@ -1,7 +1,7 @@
 import UIKit
 
 //MARK: - CollectionModel
-typealias PhotoViewModel = (data: String, url: String, name: String?)
+typealias PhotoViewModel = (date: String, url: String, name: String?)
 
 //MARK: - Protocol
 protocol PresenterPhotoListProtocol: AnyObject {
@@ -19,7 +19,6 @@ final class PhotoListPresenter {
     var interactor: InteractorPhotoListProtocol?
     var photoViewModels: [PhotoViewModel]?
     
-    let detailIdentifier = "showPhotoDetail"
     private let moduleTitle = "Gallery"
     
 }
@@ -37,7 +36,7 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
     }
     
     func photoSelected() {
-        router?.performDetail(with: detailIdentifier)
+//        router?.performDetail()
     }
     
     func fetchPhotoListSucces(photoList: [RandomPhoto]) {

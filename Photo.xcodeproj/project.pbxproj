@@ -29,6 +29,7 @@
 		8A156A1D29251A4F0081DE97 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A1C29251A4F0081DE97 /* TabBarPresenter.swift */; };
 		8A156A1F29251A5A0081DE97 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A156A1E29251A5A0081DE97 /* TabBarRouter.swift */; };
 		8A6F17A52927126900840C99 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F17A42927126900840C99 /* ExtensionUIView.swift */; };
+		8A6F17A82927196200840C99 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F17A72927196200840C99 /* ExtensionDate.swift */; };
 		8D835D17C1EF037FFC0C7A19 /* Pods_Photo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B8466755CCF7C070FA09DE /* Pods_Photo.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		8A156A1C29251A4F0081DE97 /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		8A156A1E29251A5A0081DE97 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		8A6F17A42927126900840C99 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		8A6F17A72927196200840C99 /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		9403EE0856B97491250A6630 /* Pods-Photo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photo.debug.xcconfig"; path = "Target Support Files/Pods-Photo/Pods-Photo.debug.xcconfig"; sourceTree = "<group>"; };
 		F335AAFAF91DACE95C8FEFBF /* Pods-Photo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photo.release.xcconfig"; path = "Target Support Files/Pods-Photo/Pods-Photo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6F17A42927126900840C99 /* ExtensionUIView.swift */,
+				8A6F17A72927196200840C99 /* ExtensionDate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A156A102924A6EC0081DE97 /* CompilingURL.swift in Sources */,
+				8A6F17A82927196200840C99 /* ExtensionDate.swift in Sources */,
 				8A11BDA22923D1560001C028 /* PhotoDetailPresenter.swift in Sources */,
 				8A156A1B29251A340081DE97 /* TabBarController.swift in Sources */,
 				8A6F17A52927126900840C99 /* ExtensionUIView.swift in Sources */,

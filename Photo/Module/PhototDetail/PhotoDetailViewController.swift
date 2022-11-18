@@ -21,7 +21,6 @@ class PhotoDetailViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(ph)
         presenter?.viewDidLoad()
         
     }
@@ -30,6 +29,8 @@ class PhotoDetailViewController: UIViewController {
 extension PhotoDetailViewController: ViewPhotoDetailProtocol {
     
     func setupView() {
+        nameDetailLabel.text = "hello"
+        view.addSubviews(photoDetailImageView, nameDetailLabel, dataDetailLabel, favoriteDetailButton)
         addConstraints()
     }
     
@@ -46,10 +47,19 @@ extension PhotoDetailViewController {
     //MARK: - Constraints
     private func addConstraints() {
         NSLayoutConstraint.activate([
-//            .topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            .leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            .trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            .bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            photoDetailImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            photoDetailImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            photoDetailImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            photoDetailImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
+            
+            nameDetailLabel.topAnchor.constraint(equalTo: photoDetailImageView.bottomAnchor),
+            nameDetailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            dataDetailLabel.topAnchor.constraint(equalTo: nameDetailLabel.bottomAnchor),
+            dataDetailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            favoriteDetailButton.topAnchor.constraint(equalTo: dataDetailLabel.bottomAnchor),
+            favoriteDetailButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
