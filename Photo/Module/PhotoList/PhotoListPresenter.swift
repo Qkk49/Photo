@@ -1,16 +1,11 @@
 import UIKit
 
-//MARK: - CollectionModel
-typealias PhotoViewModel = (date: String, url: String, name: String?)
-
 //MARK: - Protocol
 protocol PresenterPhotoListProtocol: AnyObject {
     func viewDidLoad()
-    func getPhotoViewModels() -> [PhotoViewModel]?
-    func getPhotoViewModels2() -> [PhotoComplete]?
-    func photoSelected(using navigationController: UINavigationController, data: PhotoViewModel?)
+    func getPhotoViewModels() -> [PhotoComplete]?
+    func photoSelected(using navigationController: UINavigationController, data: PhotoComplete?)
     func fetchPhotoListSucces(photoList: [RandomPhoto])
-    func fetchPhotoListSucces2(photoList: [RandomPhoto])
     func fetchPhotoListFailure(with errorMessage: Error)
 }
 
@@ -19,8 +14,7 @@ final class PhotoListPresenter {
     weak var view: ViewPhotoListProtocol?
     var router: RouterPhotoListProtocol?
     var interactor: InteractorPhotoListProtocol?
-    var photoViewModels: [PhotoViewModel]?
-    var photoComs: [PhotoComplete]?
+    var photoCompletes: [PhotoComplete]?
     
     private let moduleTitle = "Gallery"
     
@@ -28,11 +22,8 @@ final class PhotoListPresenter {
 
 extension PhotoListPresenter: PresenterPhotoListProtocol {
     
-    func getPhotoViewModels() -> [PhotoViewModel]? {
-        return photoViewModels
-    }
-    func getPhotoViewModels2() -> [PhotoComplete]? {
-        return photoComs
+    func getPhotoViewModels() -> [PhotoComplete]? {
+        return photoCompletes
     }
     
     func viewDidLoad() {
@@ -41,28 +32,17 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
         interactor?.fetchPhotoList()
     }
     
-    func photoSelected(using navigationController: UINavigationController, data: PhotoViewModel?) {
+    func photoSelected(using navigationController: UINavigationController, data: PhotoComplete?) {
         router?.performDetail(using: navigationController, data: data)
     }
     
     func fetchPhotoListSucces(photoList: [RandomPhoto]) {
-        var photoViewModels = [PhotoViewModel]()
+        var photoCompletes = [PhotoComplete]()
         for photo in photoList {
-            let photoViewModel: PhotoViewModel = (photo.created_at, photo.urls.small, photo.user?.name)
-            photoViewModels.append(photoViewModel)
+            let photoComplete: PhotoComplete = PhotoComplete(date: photo.created_at, url: photo.urls.small, name: photo.user?.name)
+            photoCompletes.append(photoComplete)
         }
-        self.photoViewModels = photoViewModels
-        view?.reloadData()
-    }
-    
-    func fetchPhotoListSucces2(photoList: [RandomPhoto]) {
-        var photoComs = [PhotoComplete]()
-        for photo in photoList {
-            let photoCom: PhotoComplete = PhotoComplete(date: photo.created_at, url: photo.urls.small, name: photo.user?.name)
-//            let photoViewModel: PhotoViewModel = (photo.created_at, photo.urls.small, photo.user?.name)
-            photoComs.append(photoCom)
-        }
-        self.photoComs = photoComs
+        self.photoCompletes = photoCompletes
         view?.reloadData()
     }
     

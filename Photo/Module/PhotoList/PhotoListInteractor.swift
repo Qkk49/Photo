@@ -17,7 +17,7 @@ final class PhotoListInteractor: InteractorPhotoListProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let photos):
-                    self.presenter?.fetchPhotoListSucces2(photoList: photos!)
+                    self.presenter?.fetchPhotoListSucces(photoList: photos!)
                 case .failure(let error):
                     self.presenter?.fetchPhotoListFailure(with: error)
                 }
