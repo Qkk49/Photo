@@ -1,15 +1,15 @@
-import Foundation
+import UIKit
 
 //MARK: - Extension DateFormatter
-extension Date {
+extension PhotoDetailViewController {
     
     static func formatDate(from datString: String) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let dataDate = formatter.date(from: datString)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        guard let dataDate = formatter.date(from: datString) else { return datString }
         
-        formatter.dateFormat = "MM/dd/yyyy"
-        let newStringDate = formatter.string(from: dataDate!)
+        formatter.dateFormat = "MM.dd.yyyy"
+        let newStringDate = formatter.string(from: dataDate)
         return newStringDate
     }
 }

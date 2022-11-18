@@ -16,7 +16,7 @@ final class PhotoDetailRouter: RouterPhotoDetailProtocol {
         let router = PhotoDetailRouter()
         let view = PhotoDetailViewController()
         let interactor = PhotoDetailInteractor()
-        let presenter = PhotoDetailPresenter()
+        let presenter = PhotoDetailPresenter(data: data)
         
         // Connect layers
         presenter.interactor = interactor
