@@ -13,3 +13,9 @@ struct PhotoURL: Decodable {
 struct UserName: Decodable {
     let name: String?
 }
+
+struct PhotoComplete: Decodable {
+    let date: String
+    let url: String
+    let name: String?
+}

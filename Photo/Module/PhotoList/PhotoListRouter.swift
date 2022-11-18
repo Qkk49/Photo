@@ -3,7 +3,7 @@ import UIKit
 //MARK: - Protocol
 protocol RouterPhotoListProtocol: AnyObject {
     static func createListModule(using navigationController: UINavigationController) -> PhotoListViewController
-    func performDetail(using navigationController: UINavigationController, data: DataPhotoDetail?)
+    func performDetail(using navigationController: UINavigationController, data: PhotoViewModel?)
 }
 
 class PhotoListRouter: RouterPhotoListProtocol {
@@ -31,8 +31,8 @@ class PhotoListRouter: RouterPhotoListProtocol {
         return view
     }
     
-    func performDetail(using navigationController: UINavigationController, data: DataPhotoDetail?) {
-//        let photoDetailModule = PhotoDetailRouter.createDetailModule(using: navigationController!)
-//        self.navigationController?.pushViewController(photoDetailModule, animated: false)
+    func performDetail(using navigationController: UINavigationController, data: PhotoViewModel?) {
+        let photoDetailModule = PhotoDetailRouter.createDetailModule(using: navigationController, data: data)
+        self.navigationController?.pushViewController(photoDetailModule, animated: false)
     }
 }

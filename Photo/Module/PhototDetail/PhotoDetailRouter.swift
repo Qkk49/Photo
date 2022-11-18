@@ -2,7 +2,7 @@ import UIKit
 
 //MARK: - Protocol
 protocol RouterPhotoDetailProtocol: AnyObject {
-    static func createDetailModule(using navigationController: UINavigationController, data: DataPhotoDetail?) -> PhotoDetailViewController
+    static func createDetailModule(using navigationController: UINavigationController, data: PhotoViewModel?) -> PhotoDetailViewController
 }
 
 final class PhotoDetailRouter: RouterPhotoDetailProtocol {
@@ -10,7 +10,7 @@ final class PhotoDetailRouter: RouterPhotoDetailProtocol {
     weak var presenter: PresenterPhotoDetailProtocol?
     weak var navigationController: UINavigationController?
     
-    static func createDetailModule(using navigationController: UINavigationController, data: DataPhotoDetail?) -> PhotoDetailViewController {
+    static func createDetailModule(using navigationController: UINavigationController, data: PhotoViewModel?) -> PhotoDetailViewController {
         
         // Create layers
         let router = PhotoDetailRouter()

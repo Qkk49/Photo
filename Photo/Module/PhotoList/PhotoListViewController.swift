@@ -45,14 +45,14 @@ extension PhotoListViewController: ViewPhotoListProtocol {
 extension PhotoListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let photoModels = presenter?.getPhotoViewModels() else { return 0 }
+        guard let photoModels = presenter?.getPhotoViewModels2() else { return 0 }
         return photoModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = photoListCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifire, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
         
-        guard let photoModel = presenter?.getPhotoViewModels()?[indexPath.row] else { return cell }
+        guard let photoModel = presenter?.getPhotoViewModels2()?[indexPath.row] else { return cell }
         
         cell.photoImageView.kf.setImage(with: URL(string: photoModel.url))
         
@@ -60,7 +60,8 @@ extension PhotoListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.photoSelected()
+//        let data = presenter?.getPhotoViewModels2()?[indexPath.row]
+//        presenter?.photoSelected(using: navigationController!, data: data)
     }
 }
 
