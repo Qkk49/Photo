@@ -31,6 +31,16 @@
 		8A6F17A52927126900840C99 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F17A42927126900840C99 /* ExtensionUIView.swift */; };
 		8A6F17A82927196200840C99 /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F17A72927196200840C99 /* ExtensionDate.swift */; };
 		8A757130292852F700DA0154 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A75712F292852F700DA0154 /* CoreDataManager.swift */; };
+		8A9C36132929703600BADD3A /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36122929703600BADD3A /* FavoriteListViewController.swift */; };
+		8A9C36152929705600BADD3A /* FavoriteListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36142929705600BADD3A /* FavoriteListPresenter.swift */; };
+		8A9C36172929706300BADD3A /* FavoriteListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36162929706300BADD3A /* FavoriteListInteractor.swift */; };
+		8A9C36192929706B00BADD3A /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36182929706B00BADD3A /* FavoriteListRouter.swift */; };
+		8A9C361B2929707400BADD3A /* FavoriteListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C361A2929707400BADD3A /* FavoriteListEntity.swift */; };
+		8A9C361E29297FD900BADD3A /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C361D29297FD900BADD3A /* SearchListViewController.swift */; };
+		8A9C36212929800F00BADD3A /* SearchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36202929800F00BADD3A /* SearchListPresenter.swift */; };
+		8A9C36232929806300BADD3A /* SearchListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36222929806300BADD3A /* SearchListInteractor.swift */; };
+		8A9C36252929806B00BADD3A /* SearchListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36242929806B00BADD3A /* SearchListRouter.swift */; };
+		8A9C36272929807400BADD3A /* SearchListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36262929807400BADD3A /* SearchListEntity.swift */; };
 		8ACBCBC5292946F5002E5935 /* FavoriteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8ACBCBC3292946F5002E5935 /* FavoriteModel.xcdatamodeld */; };
 		8ACBCBD5292960F4002E5935 /* FavoritePhoto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACBCBD3292960F4002E5935 /* FavoritePhoto+CoreDataClass.swift */; };
 		8ACBCBD6292960F4002E5935 /* FavoritePhoto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACBCBD4292960F4002E5935 /* FavoritePhoto+CoreDataProperties.swift */; };
@@ -65,6 +75,16 @@
 		8A6F17A42927126900840C99 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		8A6F17A72927196200840C99 /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		8A75712F292852F700DA0154 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8A9C36122929703600BADD3A /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
+		8A9C36142929705600BADD3A /* FavoriteListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListPresenter.swift; sourceTree = "<group>"; };
+		8A9C36162929706300BADD3A /* FavoriteListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListInteractor.swift; sourceTree = "<group>"; };
+		8A9C36182929706B00BADD3A /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
+		8A9C361A2929707400BADD3A /* FavoriteListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListEntity.swift; sourceTree = "<group>"; };
+		8A9C361D29297FD900BADD3A /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
+		8A9C36202929800F00BADD3A /* SearchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListPresenter.swift; sourceTree = "<group>"; };
+		8A9C36222929806300BADD3A /* SearchListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListInteractor.swift; sourceTree = "<group>"; };
+		8A9C36242929806B00BADD3A /* SearchListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListRouter.swift; sourceTree = "<group>"; };
+		8A9C36262929807400BADD3A /* SearchListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListEntity.swift; sourceTree = "<group>"; };
 		8ACBCBC4292946F5002E5935 /* FavoriteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteModel.xcdatamodel; sourceTree = "<group>"; };
 		8ACBCBD3292960F4002E5935 /* FavoritePhoto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritePhoto+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8ACBCBD4292960F4002E5935 /* FavoritePhoto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritePhoto+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -154,6 +174,8 @@
 				8A156A2029251A750081DE97 /* TabBar */,
 				8A11BD982923D0C80001C028 /* PhotoList */,
 				8A11BDA52923D1870001C028 /* PhototDetail */,
+				8A9C361F29297FDE00BADD3A /* SearchList */,
+				8A9C361C2929707A00BADD3A /* FavoriteList */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -230,6 +252,30 @@
 				8ACBCBCA29295F15002E5935 /* Model */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8A9C361C2929707A00BADD3A /* FavoriteList */ = {
+			isa = PBXGroup;
+			children = (
+				8A9C36122929703600BADD3A /* FavoriteListViewController.swift */,
+				8A9C36142929705600BADD3A /* FavoriteListPresenter.swift */,
+				8A9C36162929706300BADD3A /* FavoriteListInteractor.swift */,
+				8A9C36182929706B00BADD3A /* FavoriteListRouter.swift */,
+				8A9C361A2929707400BADD3A /* FavoriteListEntity.swift */,
+			);
+			path = FavoriteList;
+			sourceTree = "<group>";
+		};
+		8A9C361F29297FDE00BADD3A /* SearchList */ = {
+			isa = PBXGroup;
+			children = (
+				8A9C361D29297FD900BADD3A /* SearchListViewController.swift */,
+				8A9C36202929800F00BADD3A /* SearchListPresenter.swift */,
+				8A9C36222929806300BADD3A /* SearchListInteractor.swift */,
+				8A9C36242929806B00BADD3A /* SearchListRouter.swift */,
+				8A9C36262929807400BADD3A /* SearchListEntity.swift */,
+			);
+			path = SearchList;
 			sourceTree = "<group>";
 		};
 		8ACBCBCA29295F15002E5935 /* Model */ = {
@@ -367,27 +413,37 @@
 			files = (
 				8A156A102924A6EC0081DE97 /* CompilingURL.swift in Sources */,
 				8A6F17A82927196200840C99 /* ExtensionDate.swift in Sources */,
+				8A9C36232929806300BADD3A /* SearchListInteractor.swift in Sources */,
 				8A11BDA22923D1560001C028 /* PhotoDetailPresenter.swift in Sources */,
 				8A156A1B29251A340081DE97 /* TabBarController.swift in Sources */,
 				8A6F17A52927126900840C99 /* ExtensionUIView.swift in Sources */,
 				8A11BD912923D08A0001C028 /* PhotoListInteractor.swift in Sources */,
 				8A156A182924E6F50081DE97 /* PhotoCollectionViewCell.swift in Sources */,
 				8A11BD932923D0970001C028 /* PhotoListEntity.swift in Sources */,
+				8A9C36212929800F00BADD3A /* SearchListPresenter.swift in Sources */,
 				8ACBCBC5292946F5002E5935 /* FavoriteModel.xcdatamodeld in Sources */,
 				8A11BD9C2923D1230001C028 /* PhotoDetailRouter.swift in Sources */,
 				8A11BD952923D0A10001C028 /* PhotoListRouter.swift in Sources */,
 				8A757130292852F700DA0154 /* CoreDataManager.swift in Sources */,
 				8A11BD7F2923CFEA0001C028 /* PhotoListViewController.swift in Sources */,
 				8A11BD9E2923D13A0001C028 /* PhotoDetailInteractor.swift in Sources */,
+				8A9C36172929706300BADD3A /* FavoriteListInteractor.swift in Sources */,
+				8A9C36252929806B00BADD3A /* SearchListRouter.swift in Sources */,
+				8A9C36272929807400BADD3A /* SearchListEntity.swift in Sources */,
 				8A156A122924A6FC0081DE97 /* NetworkService.swift in Sources */,
 				8A11BDA02923D1470001C028 /* PhotoDetailEntity.swift in Sources */,
 				8A156A1F29251A5A0081DE97 /* TabBarRouter.swift in Sources */,
 				8A11BDA42923D17E0001C028 /* PhotoDetailViewController.swift in Sources */,
+				8A9C36132929703600BADD3A /* FavoriteListViewController.swift in Sources */,
+				8A9C36192929706B00BADD3A /* FavoriteListRouter.swift in Sources */,
 				8A11BD8F2923D0740001C028 /* PhotoListPresenter.swift in Sources */,
+				8A9C361E29297FD900BADD3A /* SearchListViewController.swift in Sources */,
 				8A156A1D29251A4F0081DE97 /* TabBarPresenter.swift in Sources */,
 				8ACBCBD5292960F4002E5935 /* FavoritePhoto+CoreDataClass.swift in Sources */,
 				8A11BD7B2923CFEA0001C028 /* AppDelegate.swift in Sources */,
 				8ACBCBD6292960F4002E5935 /* FavoritePhoto+CoreDataProperties.swift in Sources */,
+				8A9C361B2929707400BADD3A /* FavoriteListEntity.swift in Sources */,
+				8A9C36152929705600BADD3A /* FavoriteListPresenter.swift in Sources */,
 				8A11BD7D2923CFEA0001C028 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
