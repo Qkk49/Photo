@@ -14,7 +14,7 @@ struct UserName: Decodable {
     let name: String?
 }
 
-struct PhotoComplete: Decodable {
+struct PhotoComplete {
     let date: String
     let url: String
     let name: String?

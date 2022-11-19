@@ -15,7 +15,7 @@ class PhotoDetailViewController: UIViewController {
     var photoDetailImageView = UIImageView(frame: .zero)
     var nameDetailLabel = UILabel()
     var dataDetailLabel = UILabel()
-    var favoriteDetailButton = UIButton()
+    lazy var favoriteDetailButton = UIButton(type: .custom)
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -28,17 +28,40 @@ class PhotoDetailViewController: UIViewController {
 extension PhotoDetailViewController: ViewPhotoDetailProtocol {
     
     func setupView() {
-        photoDetailImageView.kf.setImage(with: URL(string: presenter!.getPhotoComplete()!.url))
+        photoDetailImageView.kf.setImage(with: URL(string: presenter!.getPhotoComplete().url))
         photoDetailImageView.contentMode = .scaleAspectFit
-        nameDetailLabel.text = presenter?.getPhotoComplete()?.name
+        
+        nameDetailLabel.text = presenter?.getPhotoComplete().name
         nameDetailLabel.font = .boldSystemFont(ofSize: 18)
-        dataDetailLabel.text = PhotoDetailViewController.formatDate(from: presenter!.getPhotoComplete()!.date)
+        
+        dataDetailLabel.text = presenter!.getPhotoComplete().date
+        
+        favoriteDetailButton.setTitle("Favorite", for: .normal)
+        favoriteDetailButton.clipsToBounds = false
+        favoriteDetailButton.layer.cornerRadius = 10
+        favoriteDetailButton.backgroundColor = .blue
+        favoriteDetailButton.addTarget(self, action: #selector(fix), for: .touchDown)
+        favoriteDetailButton.isSelected = false
+        
         view.addSubviews(photoDetailImageView, nameDetailLabel, dataDetailLabel, favoriteDetailButton)
         addConstraints()
     }
     
     func setTitle(with title: String) {
         self.title = title
+    }
+    
+    @objc func fix(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            print("save")
+            presenter?.savedFavorite()
+            favoriteDetailButton.setTitle("Cancel", for: .normal)
+        } else {
+            print("delete")
+            favoriteDetailButton.setTitle("Favorite", for: .normal)
+        }
     }
 }
 
@@ -57,8 +80,10 @@ extension PhotoDetailViewController {
             dataDetailLabel.topAnchor.constraint(equalTo: nameDetailLabel.bottomAnchor),
             dataDetailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            favoriteDetailButton.topAnchor.constraint(equalTo: dataDetailLabel.bottomAnchor),
-            favoriteDetailButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            favoriteDetailButton.topAnchor.constraint(equalTo: dataDetailLabel.bottomAnchor, constant: 15),
+            favoriteDetailButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            favoriteDetailButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35),
+            favoriteDetailButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.06)
         ])
     }
 }

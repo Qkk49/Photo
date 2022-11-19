@@ -1,7 +1,7 @@
 import UIKit
 
 //MARK: - Extension DateFormatter
-extension PhotoDetailViewController {
+extension PhotoDetailInteractor {
     
     static func formatDate(from datString: String) -> String {
         let formatter = DateFormatter()

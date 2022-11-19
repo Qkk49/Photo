@@ -2,8 +2,8 @@ import UIKit
 
 //MARK: - Protocol
 protocol PresenterPhotoDetailProtocol: AnyObject {
-    init(data: PhotoComplete?)
-    func getPhotoComplete() -> PhotoComplete?
+    func getPhotoComplete() -> DataPhotoDetail
+    func savedFavorite()
     func viewDidLoad()
 }
 
@@ -12,11 +12,6 @@ final class PhotoDetailPresenter {
     weak var view: ViewPhotoDetailProtocol?
     var router: RouterPhotoDetailProtocol?
     var interactor: InteractorPhotoDetailProtocol?
-    var data: PhotoComplete?
-    
-    required init(data: PhotoComplete?) {
-        self.data = data
-    }
     
     private let moduleTitle = "Photo"
     
@@ -24,12 +19,16 @@ final class PhotoDetailPresenter {
 
 extension PhotoDetailPresenter: PresenterPhotoDetailProtocol {
     
-    func getPhotoComplete() -> PhotoComplete? {
-        return data
+    func getPhotoComplete() -> DataPhotoDetail {
+        return interactor!.dataDetail
     }
     
     func viewDidLoad() {
         view?.setupView()
         view?.setTitle(with: moduleTitle)
+    }
+    
+    func savedFavorite() {
+        interactor?.saveFavorite()
     }
 }

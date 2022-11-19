@@ -32,6 +32,6 @@ extension TabBarController: TabBarViewProtocol {
     
     func setupView() {
         viewControllers = [photoVC]
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
     }
 }
