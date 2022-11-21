@@ -22,7 +22,6 @@ class FavoriteTableViewCell: UITableViewCell {
     //MARK: - Setup View
     func setupView() {
         favoriteImageView.contentMode = .scaleAspectFit
-//        favoriteNameLabel.text = "hh"
         addSubviews(favoriteImageView, favoriteNameLabel, favoriteDateLabel)
     }
     
@@ -35,9 +34,9 @@ class FavoriteTableViewCell: UITableViewCell {
     //MARK: - Add Constraints
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            favoriteImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            favoriteImageView.topAnchor.constraint(equalTo: self.topAnchor),
             favoriteImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            favoriteImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+            favoriteImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             favoriteImageView.widthAnchor.constraint(equalToConstant: self.frame.width / 4),
             
             favoriteNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -15),

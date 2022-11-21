@@ -35,7 +35,6 @@
 		8A9C36152929705600BADD3A /* FavoriteListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36142929705600BADD3A /* FavoriteListPresenter.swift */; };
 		8A9C36172929706300BADD3A /* FavoriteListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36162929706300BADD3A /* FavoriteListInteractor.swift */; };
 		8A9C36192929706B00BADD3A /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36182929706B00BADD3A /* FavoriteListRouter.swift */; };
-		8A9C361B2929707400BADD3A /* FavoriteListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C361A2929707400BADD3A /* FavoriteListEntity.swift */; };
 		8A9C361E29297FD900BADD3A /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C361D29297FD900BADD3A /* SearchListViewController.swift */; };
 		8A9C36212929800F00BADD3A /* SearchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36202929800F00BADD3A /* SearchListPresenter.swift */; };
 		8A9C36232929806300BADD3A /* SearchListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C36222929806300BADD3A /* SearchListInteractor.swift */; };
@@ -80,7 +79,6 @@
 		8A9C36142929705600BADD3A /* FavoriteListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListPresenter.swift; sourceTree = "<group>"; };
 		8A9C36162929706300BADD3A /* FavoriteListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListInteractor.swift; sourceTree = "<group>"; };
 		8A9C36182929706B00BADD3A /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
-		8A9C361A2929707400BADD3A /* FavoriteListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListEntity.swift; sourceTree = "<group>"; };
 		8A9C361D29297FD900BADD3A /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		8A9C36202929800F00BADD3A /* SearchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListPresenter.swift; sourceTree = "<group>"; };
 		8A9C36222929806300BADD3A /* SearchListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListInteractor.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				8A9C36142929705600BADD3A /* FavoriteListPresenter.swift */,
 				8A9C36162929706300BADD3A /* FavoriteListInteractor.swift */,
 				8A9C36182929706B00BADD3A /* FavoriteListRouter.swift */,
-				8A9C361A2929707400BADD3A /* FavoriteListEntity.swift */,
 				8A9C362A29299EC400BADD3A /* View */,
 			);
 			path = FavoriteList;
@@ -454,7 +451,6 @@
 				8ACBCBD5292960F4002E5935 /* FavoritePhoto+CoreDataClass.swift in Sources */,
 				8A11BD7B2923CFEA0001C028 /* AppDelegate.swift in Sources */,
 				8ACBCBD6292960F4002E5935 /* FavoritePhoto+CoreDataProperties.swift in Sources */,
-				8A9C361B2929707400BADD3A /* FavoriteListEntity.swift in Sources */,
 				8A9C36152929705600BADD3A /* FavoriteListPresenter.swift in Sources */,
 				8A11BD7D2923CFEA0001C028 /* SceneDelegate.swift in Sources */,
 			);

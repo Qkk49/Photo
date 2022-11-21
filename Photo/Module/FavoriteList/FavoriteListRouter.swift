@@ -3,7 +3,7 @@ import UIKit
 //MARK: - Protocol
 protocol RouterFavoriteListProtocol: AnyObject {
     static func createFavoriteListModule(using navigationController: UINavigationController) -> FavoriteListViewController
-//    func performDetail(using navigationController: UINavigationController, data: PhotoComplete?)
+    func performDetail(using navigationController: UINavigationController, data: PhotoComplete?)
 }
 
 class FavoriteListRouter: RouterFavoriteListProtocol {
@@ -31,8 +31,9 @@ class FavoriteListRouter: RouterFavoriteListProtocol {
         return view
     }
     
-//    func performDetail(using navigationController: UINavigationController, data: PhotoComplete?) {
-//        let photoDetailModule = PhotoDetailRouter.createDetailModule(using: navigationController, data: data)
-//        self.navigationController?.pushViewController(photoDetailModule, animated: false)
-//    }
+    //MARK: - Go to Detail Module
+    func performDetail(using navigationController: UINavigationController, data: PhotoComplete?) {
+        let photoDetailModule = PhotoDetailRouter.createDetailModule(using: navigationController, data: data)
+        self.navigationController?.pushViewController(photoDetailModule, animated: false)
+    }
 }

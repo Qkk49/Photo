@@ -5,7 +5,7 @@ protocol RouterPhotoDetailProtocol: AnyObject {
     static func createDetailModule(using navigationController: UINavigationController, data: PhotoComplete?) -> PhotoDetailViewController
 }
 
-final class PhotoDetailRouter: RouterPhotoDetailProtocol {
+final class PhotoDetailRouter: RouterPhotoDetailProtocol {    
     
     weak var presenter: PresenterPhotoDetailProtocol?
     weak var navigationController: UINavigationController?

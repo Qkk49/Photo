@@ -5,7 +5,8 @@ import Kingfisher
 protocol ViewFavoriteListProtocol: AnyObject {
     func setupView()
     func setTitle(with title: String)
-//    func reloadData()
+    
+    var favoriteListTableView: UITableView { get set }
 }
 
 class FavoriteListViewController: UIViewController {
@@ -20,7 +21,6 @@ class FavoriteListViewController: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         presenter?.performed()
-//        favoriteListTableView.reloadData()
     }
 }
 
@@ -30,6 +30,7 @@ extension FavoriteListViewController: ViewFavoriteListProtocol {
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
         favoriteListTableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: FavoriteTableViewCell.identifier)
+        favoriteListTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubviews(favoriteListTableView)
         addConstraints()
     }
@@ -37,10 +38,6 @@ extension FavoriteListViewController: ViewFavoriteListProtocol {
     func setTitle(with title: String) {
         self.title = title
     }
-    
-//    func reloadData() {
-//        favoriteListTableView.reloadData()
-//    }
 }
 
 extension FavoriteListViewController {
@@ -57,38 +54,35 @@ extension FavoriteListViewController {
 
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if let sections = presenter?.fetchResultController.sections {
-//            return sections[section].numberOfObjects
-//        } else {
-//            return 0
-//        }
-        return presenter?.numb(number: section) ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = favoriteListTableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
-        let user = presenter?.getObject(indexPath: indexPath) as? FavoritePhoto
-        cell.favoriteNameLabel.text = user?.favName
-        cell.favoriteImageView.kf.setImage(with: URL(string: (user?.favURL)!))
-        cell.favoriteDateLabel.text = user?.favDate
-        return cell
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 4
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        presenter?.numb(number: section) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = favoriteListTableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
+        let photo = presenter?.getObject(indexPath: indexPath) as? FavoritePhoto
+        cell.favoriteNameLabel.text = photo?.favName
+        cell.favoriteImageView.kf.setImage(with: URL(string: (photo?.favURL)!))
+        cell.favoriteDateLabel.text = photo?.favDate
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            let photo = presenter?.fetchResultController.object(at: indexPath) as? FavoritePhoto ?? FavoritePhoto()
-//            CoreDataManager.instance.context.delete(photo)
-//            CoreDataManager.instance.saveContext()
-//            favoriteListTableView.reloadData()
+            let photo = presenter?.getObject(indexPath: indexPath) as? FavoritePhoto ?? FavoritePhoto()
+            CoreDataManager.instance.context.delete(photo)
+            CoreDataManager.instance.saveContext()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = presenter?.getObject(indexPath: indexPath) as? FavoritePhoto
+        let dat: PhotoComplete = PhotoComplete(date: (data?.favDate)!, url: (data?.favURL)!, name: data?.favName)
+        presenter?.photoSelected(using: navigationController!, data: dat)
+        favoriteListTableView.deselectRow(at: indexPath, animated: true)
     }
 }
