@@ -15,8 +15,18 @@ class CoreDataManager {
         NSEntityDescription.entity(forEntityName: entityName, in: context) ?? NSEntityDescription()
     }
     
+    func fetchResultController(entityName: String, sortName: String) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let sortDescriptior = NSSortDescriptor(key: sortName, ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptior]
+        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                 managedObjectContext: CoreDataManager.instance.context,
+                                                                 sectionNameKeyPath: nil,
+                                                                 cacheName: nil)
+        return fetchedResultController
+    }
+    
     // MARK: - Core Data stack
-
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "FavoriteModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -28,7 +38,6 @@ class CoreDataManager {
     }()
 
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

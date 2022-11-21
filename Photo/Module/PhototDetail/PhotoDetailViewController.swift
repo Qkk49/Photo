@@ -21,7 +21,6 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        
     }
 }
 
@@ -40,7 +39,7 @@ extension PhotoDetailViewController: ViewPhotoDetailProtocol {
         favoriteDetailButton.clipsToBounds = false
         favoriteDetailButton.layer.cornerRadius = 10
         favoriteDetailButton.backgroundColor = .blue
-        favoriteDetailButton.addTarget(self, action: #selector(fix), for: .touchDown)
+        favoriteDetailButton.addTarget(self, action: #selector(favoriteButton), for: .touchDown)
         favoriteDetailButton.isSelected = false
         
         view.addSubviews(photoDetailImageView, nameDetailLabel, dataDetailLabel, favoriteDetailButton)
@@ -51,7 +50,7 @@ extension PhotoDetailViewController: ViewPhotoDetailProtocol {
         self.title = title
     }
     
-    @objc func fix(sender: UIButton) {
+    @objc func favoriteButton(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {

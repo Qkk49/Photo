@@ -5,21 +5,22 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     //MARK: - Property
     static let identifire = "PhotoCell"
     
-    var photoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    var photoImageView = UIImageView()
     
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(photoImageView)
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Setup View
+    func setupView() {
+        photoImageView.contentMode = .scaleAspectFit
+        addSubviews(photoImageView)
     }
     
     //MARK: - LayoutSubviews
