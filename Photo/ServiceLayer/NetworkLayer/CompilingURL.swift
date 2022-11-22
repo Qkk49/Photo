@@ -1,7 +1,9 @@
 import Foundation
 
+//MARK: - URLComponents
 enum Section {
     case photoList
+    case search (query: String)
     
     private var urlComponents: URL {
         var components = URLComponents()
@@ -13,10 +15,17 @@ enum Section {
             components.path = "/photos/random"
             components.queryItems = [URLQueryItem(name: "count", value: String(30)),
                                      URLQueryItem(name: "orientation", value: "portrait")]
+            
+        case .search(query: let query):
+            components.path = "/search/photos"
+            components.queryItems = [URLQueryItem(name: "query", value: query),
+                                     URLQueryItem(name: "count", value: String(30)),
+                                     URLQueryItem(name: "orientation", value: "portrait")]
         }
         return components.url!
     }
     
+    //MARK: - URLRequest
     var URLrequest: URLRequest {
         var request = URLRequest(url: urlComponents)
         request.httpMethod = "GET"

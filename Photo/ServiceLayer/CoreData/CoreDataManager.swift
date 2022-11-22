@@ -3,10 +3,12 @@ import CoreData
 
 class CoreDataManager {
     
+    //MARK: - Singltone
     static let instance = CoreDataManager()
     
     private init() {}
     
+    //MARK: - Context
     lazy var context: NSManagedObjectContext = {
         persistentContainer.viewContext
     }()
@@ -15,6 +17,7 @@ class CoreDataManager {
         NSEntityDescription.entity(forEntityName: entityName, in: context) ?? NSEntityDescription()
     }
     
+    //MARK: - NSFetchedResultsController
     func fetchResultController(entityName: String, sortName: String) -> NSFetchedResultsController<NSFetchRequestResult> {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         let sortDescriptior = NSSortDescriptor(key: sortName, ascending: false)
