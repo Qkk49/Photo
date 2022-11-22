@@ -18,4 +18,5 @@ struct PhotoComplete {
     let date: String
     let url: String
     let name: String?
+    let button: Bool
 }

@@ -39,7 +39,7 @@ extension PhotoListPresenter: PresenterPhotoListProtocol {
     func fetchPhotoListSucces(photoList: [RandomPhoto]) {
         var photoCompletes = [PhotoComplete]()
         for photo in photoList {
-            let photoComplete: PhotoComplete = PhotoComplete(date: photo.created_at, url: photo.urls.small, name: photo.user?.name)
+            let photoComplete: PhotoComplete = PhotoComplete(date: photo.created_at, url: photo.urls.small, name: photo.user?.name, button: false)
             photoCompletes.append(photoComplete)
         }
         self.photoCompletes = photoCompletes

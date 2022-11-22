@@ -30,7 +30,6 @@ extension FavoriteListViewController: ViewFavoriteListProtocol {
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
         favoriteListTableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: FavoriteTableViewCell.identifier)
-        favoriteListTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubviews(favoriteListTableView)
         addConstraints()
     }
@@ -81,7 +80,7 @@ extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = presenter?.getObject(indexPath: indexPath) as? FavoritePhoto
-        let dat: PhotoComplete = PhotoComplete(date: (data?.favDate)!, url: (data?.favURL)!, name: data?.favName)
+        let dat: PhotoComplete = PhotoComplete(date: (data?.favDate)!, url: (data?.favURL)!, name: data?.favName, button: true)
         presenter?.photoSelected(using: navigationController!, data: dat)
         favoriteListTableView.deselectRow(at: indexPath, animated: true)
     }

@@ -21,6 +21,7 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
 
@@ -35,13 +36,16 @@ extension PhotoDetailViewController: ViewPhotoDetailProtocol {
         
         dataDetailLabel.text = presenter!.getPhotoComplete().date
         
-        favoriteDetailButton.setTitle("Favorite", for: .normal)
         favoriteDetailButton.clipsToBounds = false
         favoriteDetailButton.layer.cornerRadius = 10
+        favoriteDetailButton.setTitle("Favorite", for: .normal)
         favoriteDetailButton.backgroundColor = .blue
-        favoriteDetailButton.addTarget(self, action: #selector(favoriteButton), for: .touchDown)
         favoriteDetailButton.isSelected = false
+        favoriteDetailButton.addTarget(self, action: #selector(favoriteButton), for: .touchDown)
         
+        if presenter?.getPhotoComplete().but == true {
+            favoriteDetailButton.isHidden = true
+        }
         view.addSubviews(photoDetailImageView, nameDetailLabel, dataDetailLabel, favoriteDetailButton)
         addConstraints()
     }
@@ -54,12 +58,13 @@ extension PhotoDetailViewController: ViewPhotoDetailProtocol {
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
-            print("save")
             presenter?.savedFavorite()
             favoriteDetailButton.setTitle("Cancel", for: .normal)
+            favoriteDetailButton.backgroundColor = .red
         } else {
-            print("delete")
+            presenter?.deletedFavorite()
             favoriteDetailButton.setTitle("Favorite", for: .normal)
+            favoriteDetailButton.backgroundColor = .blue
         }
     }
 }

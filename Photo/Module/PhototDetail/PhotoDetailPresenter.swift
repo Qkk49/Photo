@@ -4,6 +4,7 @@ import UIKit
 protocol PresenterPhotoDetailProtocol: AnyObject {
     func getPhotoComplete() -> DataPhotoDetail
     func savedFavorite()
+    func deletedFavorite()
     func viewDidLoad()
 }
 
@@ -14,7 +15,6 @@ final class PhotoDetailPresenter {
     var interactor: InteractorPhotoDetailProtocol?
     
     private let moduleTitle = "Photo"
-    
 }
 
 extension PhotoDetailPresenter: PresenterPhotoDetailProtocol {
@@ -30,5 +30,9 @@ extension PhotoDetailPresenter: PresenterPhotoDetailProtocol {
     
     func savedFavorite() {
         interactor?.saveFavorite()
+    }
+    
+    func deletedFavorite() {
+        interactor?.deleteFavorite()
     }
 }

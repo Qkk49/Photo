@@ -36,7 +36,7 @@ extension SearchListPresenter: PresenterSearchListProtocol {
     func fetchSearchListSucces(searchList: [RandomPhoto]) {
         var searchCompletes = [PhotoComplete]()
         for search in searchList {
-            let searchComplete: PhotoComplete = PhotoComplete(date: search.created_at, url: search.urls.small, name: search.user?.name)
+            let searchComplete: PhotoComplete = PhotoComplete(date: search.created_at, url: search.urls.small, name: search.user?.name, button: false)
             searchCompletes.append(searchComplete)
         }
         self.searchCompletes = searchCompletes

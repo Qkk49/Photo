@@ -13,6 +13,7 @@ class TabBarController: UITabBarController {
         let photoListViewController = PhotoListRouter.createListModule(using: navigationController)
         navigationController.viewControllers = [photoListViewController]
         navigationController.tabBarItem.image = UIImage(systemName: "house.circle")!
+        navigationController.navigationBar.prefersLargeTitles = true
         return navigationController
     }()
     
@@ -22,6 +23,7 @@ class TabBarController: UITabBarController {
         navigationController.viewControllers = [searchListViewController]
         navigationController.tabBarItem.image = UIImage(systemName: "magnifyingglass.circle")!
         navigationController.tabBarItem.title = "Search"
+        navigationController.navigationBar.prefersLargeTitles = true
         return navigationController
     }()
     
@@ -31,6 +33,7 @@ class TabBarController: UITabBarController {
         navigationController.viewControllers = [favoriteListViewController]
         navigationController.tabBarItem.image = UIImage(systemName: "heart.circle")!
         navigationController.tabBarItem.title = "Favorites"
+        navigationController.navigationBar.prefersLargeTitles = true
         return navigationController
     }()
     
