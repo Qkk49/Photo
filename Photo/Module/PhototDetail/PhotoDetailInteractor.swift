@@ -14,16 +14,22 @@ protocol InteractorPhotoDetailProtocol: AnyObject {
 final class PhotoDetailInteractor: InteractorPhotoDetailProtocol {
     
     weak var presenter: PresenterPhotoDetailProtocol?
-    var data: PhotoComplete?
     
-    lazy var dataDetail: DataPhotoDetail = DataPhotoDetail(date: PhotoDetailInteractor.formatDate(from: data!.date), url: data!.url, name: data?.name, but: data!.button)
+    //MARK: - Get model from last Module
+    var data: PhotoComplete?
     
     required init(data: PhotoComplete?) {
         self.data = data
     }
+
+    lazy var dataDetail: DataPhotoDetail = DataPhotoDetail(date: PhotoDetailInteractor.formatDate(from: data!.date),
+                                                           url: data!.url,
+                                                           name: data!.name,
+                                                           but: data!.button)
     
     var favorite: FavoritePhoto?
     
+    //MARK: - Save to CoreData
     func saveFavorite() {
         if favorite == nil {
             favorite = FavoritePhoto()
@@ -36,6 +42,7 @@ final class PhotoDetailInteractor: InteractorPhotoDetailProtocol {
         }
     }
     
+    //MARK: - Delete from CoreData
     func deleteFavorite() {
         if favorite == nil {
             favorite = FavoritePhoto()

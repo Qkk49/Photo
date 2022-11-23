@@ -10,6 +10,7 @@ final class PhotoListInteractor: InteractorPhotoListProtocol {
     let networkService = NetworkService()
     weak var presenter: PresenterPhotoListProtocol?
     
+    //MARK: - Get Photos from Network
     func fetchPhotoList() {
         networkService.fetchPhotoLists { [weak self] result in
             guard let self = self else { return }

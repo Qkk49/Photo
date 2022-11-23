@@ -10,6 +10,7 @@ final class PhotoDetailRouter: RouterPhotoDetailProtocol {
     weak var presenter: PresenterPhotoDetailProtocol?
     weak var navigationController: UINavigationController?
     
+    //MARK: - Create Module
     static func createDetailModule(using navigationController: UINavigationController, data: PhotoComplete?) -> PhotoDetailViewController {
         
         // Create layers

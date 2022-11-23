@@ -18,15 +18,18 @@ final class FavoriteListPresenter: PresenterFavoriteListProtocol {
     
     private let moduleTitle = "Favorites"
     
+    //MARK: - ViewDidLoad
     func viewDidLoad() {
         view?.setupView()
         view?.setTitle(with: moduleTitle)
     }
     
+    //MARK: - PerformFetch
     func performed() {
         interactor?.perform()
     }
     
+    //MARK: - Get CoreData Model
     func numb(number: Int) -> Int {
         return interactor?.fetchResultController.sections?[number].numberOfObjects ?? 0
     }
@@ -35,11 +38,13 @@ final class FavoriteListPresenter: PresenterFavoriteListProtocol {
         guard let result = interactor?.fetchResultController.object(at: indexPath) else { return 0 }
         return result
     }
-    
+     
+    //MARK: - TableView to FetchResultControllerDelagate
     func getTableView() -> UITableView? {
         return view?.favoriteListTableView
     }
     
+    //MARK: - Go to next Module
     func photoSelected(using navigationController: UINavigationController, data: PhotoComplete?) {
         router?.performDetail(using: navigationController, data: data)
     }

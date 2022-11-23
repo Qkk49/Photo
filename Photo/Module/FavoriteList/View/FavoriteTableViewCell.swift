@@ -20,7 +20,7 @@ class FavoriteTableViewCell: UITableViewCell {
     }
     
     //MARK: - Setup View
-    func setupView() {
+    private func setupView() {
         favoriteImageView.contentMode = .scaleAspectFit
         addSubviews(favoriteImageView, favoriteNameLabel, favoriteDateLabel)
     }

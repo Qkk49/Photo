@@ -22,20 +22,24 @@ final class PhotoListPresenter {
 
 extension PhotoListPresenter: PresenterPhotoListProtocol {
     
+    //MARK: - Get Model
     func getPhotoViewModels() -> [PhotoComplete]? {
         return photoCompletes
     }
     
+    //MARK: - ViewDidLoad
     func viewDidLoad() {
         view?.setupView()
         view?.setTitle(with: moduleTitle)
         interactor?.fetchPhotoList()
     }
     
+    //MARK: - Go to next Module
     func photoSelected(using navigationController: UINavigationController, data: PhotoComplete?) {
         router?.performDetail(using: navigationController, data: data)
     }
     
+    //MARK: - Get Photos from Interactor
     func fetchPhotoListSucces(photoList: [RandomPhoto]) {
         var photoCompletes = [PhotoComplete]()
         for photo in photoList {

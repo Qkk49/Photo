@@ -20,21 +20,27 @@ class PhotoDetailViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
+        view.backgroundColor = .white
+    }
+    
+    //MARK: - ViewDidAppear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter?.viewDidLoad()
     }
 }
 
+//MARK: - Setup View
 extension PhotoDetailViewController: ViewPhotoDetailProtocol {
-    
     func setupView() {
-        photoDetailImageView.kf.setImage(with: URL(string: presenter!.getPhotoComplete().url))
+        photoDetailImageView.kf.setImage(with: URL(string: presenter?.getPhotoComplete().url ?? ""))
         photoDetailImageView.contentMode = .scaleAspectFit
         
         nameDetailLabel.text = presenter?.getPhotoComplete().name
         nameDetailLabel.font = .boldSystemFont(ofSize: 18)
         
-        dataDetailLabel.text = presenter!.getPhotoComplete().date
+        dataDetailLabel.text = presenter?.getPhotoComplete().date
         
         favoriteDetailButton.clipsToBounds = false
         favoriteDetailButton.layer.cornerRadius = 10
@@ -46,6 +52,7 @@ extension PhotoDetailViewController: ViewPhotoDetailProtocol {
         if presenter?.getPhotoComplete().but == true {
             favoriteDetailButton.isHidden = true
         }
+        
         view.addSubviews(photoDetailImageView, nameDetailLabel, dataDetailLabel, favoriteDetailButton)
         addConstraints()
     }
@@ -54,6 +61,7 @@ extension PhotoDetailViewController: ViewPhotoDetailProtocol {
         self.title = title
     }
     
+    //MARK: - Button Action
     @objc func favoriteButton(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         

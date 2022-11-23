@@ -11,6 +11,7 @@ class PhotoListRouter: RouterPhotoListProtocol {
     weak var presenter: PresenterPhotoListProtocol?
     weak var navigationController: UINavigationController?
     
+    //MARK: - Create Module
     static func createListModule(using navigationController: UINavigationController) -> PhotoListViewController {
         
         // Create layers
@@ -34,6 +35,6 @@ class PhotoListRouter: RouterPhotoListProtocol {
     //MARK: - Go to Detail Module
     func performDetail(using navigationController: UINavigationController, data: PhotoComplete?) {
         let photoDetailModule = PhotoDetailRouter.createDetailModule(using: navigationController, data: data)
-        self.navigationController?.pushViewController(photoDetailModule, animated: false)
+        self.navigationController?.pushViewController(photoDetailModule, animated: true)
     }
 }

@@ -1,5 +1,5 @@
 import Foundation
 
 struct SearchPhoto: Decodable {
-    var results: [RandomPhoto]
+    let results: [RandomPhoto]
 }

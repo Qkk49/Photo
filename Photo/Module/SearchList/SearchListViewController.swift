@@ -10,8 +10,9 @@ protocol ViewSearchListProtocol: AnyObject {
 
 class SearchListViewController: UIViewController {
 
-    //MARK: - Property
     var presenter: PresenterSearchListProtocol?
+    
+    //MARK: - Property
     private var timer: Timer?
     var searchListSearchBar = UISearchBar()
     lazy var searchListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createSearchListLayout())
@@ -29,7 +30,6 @@ extension SearchListViewController: ViewSearchListProtocol {
         searchListCollectionView.delegate = self
         searchListCollectionView.dataSource = self
         searchListCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifire)
-        
         searchListSearchBar.delegate = self
         searchListSearchBar.placeholder = "Search"
         searchListSearchBar.searchTextField.backgroundColor = .white
@@ -69,14 +69,14 @@ extension SearchListViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / 2.0), heightDimension: .fractionalHeight(1.0))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0 / 2.0))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0 / 2.5))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
         group.interItemSpacing = .fixed(25)
 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 0, leading: spacing, bottom: 0, trailing: spacing)
-        section.interGroupSpacing = 0
+        section.contentInsets = .init(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
+        section.interGroupSpacing = spacing
 
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
@@ -111,7 +111,7 @@ extension SearchListViewController: UICollectionViewDataSource, UICollectionView
 extension SearchListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [self] _ in
-            presenter?.ja(text: searchText)
+            presenter?.searchText(text: searchText)
             searchListCollectionView.reloadData()
         })
     }

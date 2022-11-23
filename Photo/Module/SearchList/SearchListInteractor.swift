@@ -10,6 +10,7 @@ final class SearchListInteractor: InteractorSearchListProtocol {
     weak var presenter: PresenterSearchListProtocol?
     let networkService = NetworkService()
 
+    //MARK: - Get Photos from Network
     func getSearchPhoto(query: String) {
         networkService.getSearchPhotos(query: query) { [weak self] result in
             guard let self = self else {return}

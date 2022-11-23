@@ -43,14 +43,15 @@ extension FavoriteListViewController {
     //MARK: - Constraints
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            favoriteListTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            favoriteListTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            favoriteListTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            favoriteListTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            favoriteListTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            favoriteListTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            favoriteListTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            favoriteListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
 
+//MARK: - TableView DataSource, Delegate
 extension FavoriteListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

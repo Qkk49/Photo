@@ -12,6 +12,7 @@ final class FavoriteListInteractor: NSObject, InteractorFavoriteListProtocol {
     
     weak var presenter: PresenterFavoriteListProtocol?
     
+    //MARK: - FetchResultController
     var favorite: FavoritePhoto?
     var fetchResultController = CoreDataManager.instance.fetchResultController(entityName: "FavoritePhoto", sortName: "favDate")
     
@@ -29,6 +30,7 @@ final class FavoriteListInteractor: NSObject, InteractorFavoriteListProtocol {
     }
 }
 
+//MARK: - FetchResultControllerDelagate
 extension FavoriteListInteractor: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         presenter?.getTableView()?.beginUpdates()

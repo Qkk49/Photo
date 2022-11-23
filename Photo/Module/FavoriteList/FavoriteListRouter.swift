@@ -11,6 +11,7 @@ class FavoriteListRouter: RouterFavoriteListProtocol {
     weak var presenter: PresenterFavoriteListProtocol?
     weak var navigationController: UINavigationController?
     
+    //MARK: - Create Module
     static func createFavoriteListModule(using navigationController: UINavigationController) -> FavoriteListViewController {
         
         // Create layers
@@ -34,6 +35,6 @@ class FavoriteListRouter: RouterFavoriteListProtocol {
     //MARK: - Go to Detail Module
     func performDetail(using navigationController: UINavigationController, data: PhotoComplete?) {
         let photoDetailModule = PhotoDetailRouter.createDetailModule(using: navigationController, data: data)
-        self.navigationController?.pushViewController(photoDetailModule, animated: false)
+        self.navigationController?.pushViewController(photoDetailModule, animated: true)
     }
 }

@@ -18,7 +18,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: - Setup View
-    func setupView() {
+    private func setupView() {
         photoImageView.contentMode = .scaleAspectFit
         addSubviews(photoImageView)
     }
@@ -30,12 +30,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: - Constraints
-    func addConstraint() {
+    private func addConstraint() {
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: self.topAnchor),
             photoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            photoImageView.heightAnchor.constraint(equalToConstant: self.frame.height)
+            photoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

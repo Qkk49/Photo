@@ -19,15 +19,21 @@ final class PhotoDetailPresenter {
 
 extension PhotoDetailPresenter: PresenterPhotoDetailProtocol {
     
+    //MARK: - Get Model
     func getPhotoComplete() -> DataPhotoDetail {
-        return interactor!.dataDetail
+        guard let result = interactor?.dataDetail else {
+            return DataPhotoDetail(date: "", url: "", name: "", but: false)
+        }
+        return result
     }
     
+    //MARK: - ViewDidLoad
     func viewDidLoad() {
         view?.setupView()
         view?.setTitle(with: moduleTitle)
     }
     
+    //MARK: - CoreData Save/Delete
     func savedFavorite() {
         interactor?.saveFavorite()
     }
