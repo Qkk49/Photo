@@ -1,8 +1,9 @@
 # Photo
 
-App with Unsplash API and Core Data
+## App with Unsplash API and Core Data
 
-![Simulator Screen Shot - iPhone 14 Pro - 2022-11-24 at 07 17 46](https://user-images.githubusercontent.com/116896891/203686882-e70087fe-2421-424a-884a-84a4ada2d6f5.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2022-11-24 at 07 18 22](https://user-images.githubusercontent.com/116896891/203686899-af78c237-c2e2-4634-8313-452fc3c12f10.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2022-11-24 at 07 18 38](https://user-images.githubusercontent.com/116896891/203686903-e8c9b026-dbb2-459d-b7d9-7f5ca045458d.png)
-![Simulator Screen Shot - iPhone 14 Pro - 2022-11-24 at 07 19 19](https://user-images.githubusercontent.com/116896891/203686905-25929055-f10e-4a1f-a2ce-0c563c2345b2.png)
+![imgonline-com-ua-Resize-SsG0lv1Bqesvb5yR](https://user-images.githubusercontent.com/116896891/203690460-24ea51f4-7e57-468d-8f68-57e9a2540cfe.jpg)
+![imgonline-com-ua-Resize-B2eTnyWv4Z12ZnTS](https://user-images.githubusercontent.com/116896891/203690459-9e126e67-ab11-44b2-aaa1-b0c15466b5d2.jpg)
+
+![imgonline-com-ua-Resize-Omkkq4COyeXJqkxP](https://user-images.githubusercontent.com/116896891/203690672-e77dca66-bdc1-4c68-98bd-cc8c467945a5.jpg)
+![imgonline-com-ua-Resize-CpZYCmjUpz6](https://user-images.githubusercontent.com/116896891/203690715-d1ea4668-fc47-4ae7-b7bb-833b44dd0a12.jpg)
