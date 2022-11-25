@@ -40,12 +40,12 @@ extension FavoriteListInteractor: NSFetchedResultsControllerDelegate {
         switch type {
         case .insert:
             if let indexPath = newIndexPath {
-                presenter?.getTableView()?.insertRows(at: [indexPath], with: .automatic)
+                presenter?.getTableView()?.insertRows(at: [indexPath], with: .none)
             }
 
         case .delete:
             if let indexPath = indexPath {
-                presenter?.getTableView()?.deleteRows(at: [indexPath], with: .automatic)
+                presenter?.getTableView()?.deleteRows(at: [indexPath], with: .none)
             }
 
         default:
